@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto de los Goles</title>
+    <link rel="stylesheet" href="flag-icons-master/css/flag-icon.css">
+    <link rel="icon" type="image/png"
+        href="https://static.vecteezy.com/system/resources/previews/015/082/027/original/classic-soccer-ball-or-football-png.png">
+    </link>
+    <script src="https://kit.fontawesome.com/a17ec9ee8e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+    body {
+        font-family: 'Inter';
+    }
+
+    .bg-image {
+        background-image: url("https://img.freepik.com/foto-gratis/fondo-verde-hierba-falsa_53876-16313.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .img-yape {
+        width: 25%;
+    }
+
+    @media screen and (max-width: 600px) {
+        .img-yape {
+            width: 50%;
+        }
+    }
+</style>
+
+<body class="bg-image">
+    <div class="d-flex flex-column justify-content-center align-items-center min-vh-100 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="card h-100 m-1">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center my-1">
+                                <h5>TOTAL:&nbsp;</h5>
+                                <h5 id="total">0</h5>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5>EPL </h5>
+                                <span class="flag-icon flag-icon-eng bg-succes"></span>
+                                <h5>: &nbsp;</h5>
+                                <h5 id="goals_epl">----------</h5>
+                                <h5> &nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="epl" onclick="updateEPL()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">LaLiga </h5>
+                                <span class="flag-icon flag-icon-esp"></span>
+                                <h5>:&nbsp;</h5>
+                                <h5 id="goals_laliga">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="laliga" onclick="updateLaLiga()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">Bundes</h5>
+                                <span class="flag-icon flag-icon-deu"></span>
+                                <h5>:&nbsp;</h5>
+                                <h5 id="goals_bundes">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="bundes" onclick="updateBundes()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">SerieA</h5>
+                                <span class="flag-icon flag-icon-ita"></span>
+                                <h5>:&nbsp;</h5>
+                                <h5 id="goals_seriea">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="seriea" onclick="updateSeriea()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">Ligue1</h5>
+                                <span class="flag-icon flag-icon-fra"></span>
+                                <h5>:&nbsp;</h5>
+                                <h5 id="goals_ligueone">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="ligueone" onclick="updateLigueone()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">Eredi</h5>
+                                <span class="flag-icon flag-icon-bes"></span>
+                                <h5>:&nbsp;</h5>
+                                <h5 id="goals_eredi">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="eredi" onclick="updateEredi()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">UCL</h5>
+                                <span class="flag-icon flag-icon-eun"></span>
+                                <h5>:&nbsp;</h5>
+                                <h5 id="goals_ucl">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="ucl" onclick="updateUCL()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <span class="flag-icon flag-icon-mex me-1"></span>
+                                <span class="flag-icon flag-icon-usa me-1"></span>
+                                <span class="flag-icon flag-icon-arg me-1"></span>
+                                <span class="flag-icon flag-icon-bra me-1"></span>
+                                <h5 class="card-title">:&nbsp;</h5>
+                                <h5 id="goals_america">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="america" onclick="updateAmerica()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">Pais&#127758;:&nbsp;</h5>
+                                <h5 id="goals_pais1">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="pais1" onclick="updatePais1()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">Pais&#127758;:&nbsp;</h5>
+                                <h5 id="goals_pais2">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="pais2" onclick="updatePais2()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">Clubes&#9917;:&nbsp;</h5>
+                                <h5 id="goals_clubes1">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="clubes1" onclick="updateClubes1()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">Clubes&#9917;:&nbsp;</h5>
+                                <h5 id="goals_clubes2">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="clubes2" onclick="updateClubes2()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">Clubes&#9917;:&nbsp;</h5>
+                                <h5 id="goals_clubes3">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="clubes3" onclick="updateClubes3()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <h5 class="card-title">Carrera&#9917;&#9917;:&nbsp;</h5>
+                                <h5 id="goals_carrera">----------</h5>
+                                <h5>&nbsp;</h5>
+                                <button type="button" class="btn btn-primary" id="carrera" onclick="updateCarrera()">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="card h-100 m-3">
+                        <div class="card-body text-center d-flex flex-column align-items-center justify-content-center">
+                            <div>
+                                <img id="playerImage" class="w-50 rounded"
+                                    src="https://img.a.transfermarkt.technology/portrait/big/17121-1672341199.jpg?lm=1"
+                                    alt="..." />
+                            </div>
+                            <br />
+                            <button class="btn btn-success mb-1" onclick="sortear()" id="btn-start">
+                                <i id="icono" class="fa-solid fa-play"></i>
+                            </button>
+                            <button class="btn btn-danger" onclick="reiniciar()">REINICIAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-white text-center mt-5">
+                <h5>Por si deseas apoyarme para seguir mejorando la web</h5>
+                <h5>PAYPAL: serch174@hotmail.com</h5>
+                <h5>YAPE</h5>
+                <img class="m-auto img-yape" src="qr_yape.jpeg" alt="..." />
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log("Creador: ElSaiyann!! xd")
+        // Definir una constante para almacenar los datos del JSON
+        const players = [];
+
+        // Utilizar fetch para obtener los datos del JSON
+        fetch('players.json')
+            .then(response => {
+                // Verificar si la respuesta es exitosa
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                // Devolver la respuesta como JSON
+                return response.json();
+            })
+            .then(data => {
+                players.push(...data);
+                players.sort(() => Math.random() - 0.5);
+            })
+            .catch(error => {
+                // Capturar errores de red u otros errores
+                console.error('There was a problem with your fetch operation:', error);
+            });
+
+
+
+        let currentPlayerIndex = 0;
+        let intervalId;
+
+        let button_epl = document.getElementById("epl");
+        let button_laliga = document.getElementById("laliga");
+        let button_bundes = document.getElementById("bundes");
+        let button_seriea = document.getElementById("seriea");
+        let button_ligueone = document.getElementById("ligueone");
+        let button_eredi = document.getElementById("eredi");
+        let button_ucl = document.getElementById("ucl");
+        let button_america = document.getElementById("america");
+
+        let button_pais1 = document.getElementById("pais1");
+        let button_pais2 = document.getElementById("pais2");
+
+        let button_clubes1 = document.getElementById("clubes1");
+        let button_clubes2 = document.getElementById("clubes2");
+        let button_clubes3 = document.getElementById("clubes3");
+
+        let button_carrera = document.getElementById("carrera");
+
+        button_epl.style.display = "none";
+        button_laliga.style.display = "none";
+        button_bundes.style.display = "none";
+        button_seriea.style.display = "none";
+        button_ligueone.style.display = "none";
+        button_eredi.style.display = "none";
+        button_ucl.style.display = "none";
+        button_america.style.display = "none";
+        button_pais1.style.display = "none";
+        button_pais2.style.display = "none";
+        button_clubes1.style.display = "none";
+        button_clubes2.style.display = "none";
+        button_clubes3.style.display = "none";
+        button_carrera.style.display = "none";
+
+
+        function reiniciar() {
+            window.location.reload();
+            localStorage.clear();
+            localStorage.setItem("total", 0);
+        }
+
+        function sortear() {
+
+            if (!intervalId) {
+                intervalId = setInterval(() => {
+                    var icono = document.getElementById("icono");
+                    if (icono.classList.contains("fa-play")) {
+                        icono.classList.remove("fa-play");
+                        icono.classList.add("fa-pause");
+                    }
+                    currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+                    const player = players[currentPlayerIndex];
+                    document.getElementById('playerImage').src = player.photo;
+                    localStorage.setItem('player', player.name);
+                }, 25);
+            } else {
+                clearInterval(intervalId);
+                intervalId = null;
+                var icono = document.getElementById("icono");
+                if (icono.classList.contains("fa-pause")) {
+                    icono.classList.remove("fa-pause");
+                    icono.classList.add("fa-play");
+                }
+                document.getElementById("btn-start").disabled = true;
+
+                if (localStorage.getItem('epl') == null) {
+                    button_epl.style.display = "block";
+                }
+                if (localStorage.getItem("laliga") == null) {
+                    button_laliga.style.display = "block"
+                }
+                if (localStorage.getItem('bundes') == null) {
+                    button_bundes.style.display = "block";
+                }
+                if (localStorage.getItem('seriea') == null) {
+                    button_seriea.style.display = "block";
+                }
+                if (localStorage.getItem('ligueone') == null) {
+                    button_ligueone.style.display = "block";
+                }
+                if (localStorage.getItem('eredi') == null) {
+                    button_eredi.style.display = "block";
+                }
+                if (localStorage.getItem('ucl') == null) {
+                    button_ucl.style.display = "block";
+                }
+                if (localStorage.getItem('america') == null) {
+                    button_america.style.display = "block";
+                }
+                if (localStorage.getItem('pais1') == null) {
+                    button_pais1.style.display = "block";
+                }
+                if (localStorage.getItem('pais2') == null) {
+                    button_pais2.style.display = "block";
+                }
+                if (localStorage.getItem('clubes1') == null) {
+                    button_clubes1.style.display = "block";
+                }
+                if (localStorage.getItem('clubes2') == null) {
+                    button_clubes2.style.display = "block";
+                }
+                if (localStorage.getItem('clubes3') == null) {
+                    button_clubes3.style.display = "block";
+                }
+                if (localStorage.getItem('carrera') == null) {
+                    button_carrera.style.display = "block";
+                }
+
+            }
+        }
+
+        function updateEPL() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].epl;
+                    localStorage.setItem("epl", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("epl"));
+
+                    // Suma el valor de EPL al total actual almacenado en localStorage
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_epl").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("epl") + ")"
+
+            if (localStorage.getItem('epl') >= 0) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+
+                    players.splice(playerIndex, 1);
+
+                    localStorage.removeItem("player");
+                } else {
+
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+        function updateLaLiga() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].laliga;
+                    localStorage.setItem("laliga", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("laliga"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_laliga").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("laliga") + ")"
+
+            if (localStorage.getItem('laliga') >= 0) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+        function updateBundes() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].bundes;
+                    localStorage.setItem("bundes", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("bundes"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_bundes").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("bundes") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') >= 0) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+        function updateSeriea() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].seriea;
+                    localStorage.setItem("seriea", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("seriea"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_seriea").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("seriea") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') >= 0) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+        function updateLigueone() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].ligueone;
+                    localStorage.setItem("ligueone", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("ligueone"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_ligueone").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("ligueone") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') >= 0) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+
+        function updateEredi() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].eredi;
+                    localStorage.setItem("eredi", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("eredi"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_eredi").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("eredi") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') >= 0) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+
+
+
+
+
+
+        function updateUCL() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].ucl;
+                    localStorage.setItem("ucl", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("ucl"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_ucl").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("ucl") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') >= 0) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+
+
+        function updateAmerica() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].america;
+                    localStorage.setItem("america", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("america"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_america").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("america") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') >= 0) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+
+        function updatePais1() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].pais;
+                    localStorage.setItem("pais1", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("pais1"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_pais1").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("pais1") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') >= 0) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+
+        function updatePais2() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].pais;
+                    localStorage.setItem("pais2", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("pais2"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_pais2").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("pais2") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') >= 0) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+
+
+        function updateClubes1() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].clubes;
+                    localStorage.setItem("clubes1", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("clubes1"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_clubes1").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("clubes1") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') >= 0) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+
+
+        function updateClubes2() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].clubes;
+                    localStorage.setItem("clubes2", epValue);
+
+                    const eplValue = parseInt(localStorage.getItem("clubes2"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_clubes2").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("clubes2") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') >= 0) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+
+
+
+        function updateClubes3() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].clubes;
+                    localStorage.setItem("clubes3", epValue);
+
+
+                    const eplValue = parseInt(localStorage.getItem("clubes3"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_clubes3").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("clubes3") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') >= 0) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') == null) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+        function updateCarrera() {
+
+            for (let i = 0; i < players.length; i++) {
+
+                const playerName = players[i].name;
+
+                if (playerName === localStorage.getItem("player")) {
+                    const epValue = players[i].carrera;
+                    localStorage.setItem("carrera", epValue);
+
+
+                    const eplValue = parseInt(localStorage.getItem("carrera"));
+
+                    let total = parseInt(localStorage.getItem("total"));
+                    total += eplValue;
+
+                    // Actualiza el valor total en localStorage
+                    localStorage.setItem("total", total);
+                    document.getElementById("total").innerHTML = localStorage.getItem("total");
+
+                    break;
+                }
+            }
+
+            document.getElementById("goals_carrera").innerHTML = localStorage.getItem("player") + "(" + localStorage.getItem("carrera") + ")"
+
+            if (localStorage.getItem('laliga') == null) {
+                button_laliga.style.display = "none";
+            }
+            if (localStorage.getItem('epl') == null) {
+                button_epl.style.display = "none";
+            }
+            if (localStorage.getItem('bundes') == null) {
+                button_bundes.style.display = "none";
+            }
+            if (localStorage.getItem('seriea') == null) {
+                button_seriea.style.display = "none";
+            }
+            if (localStorage.getItem('ligueone') == null) {
+                button_ligueone.style.display = "none";
+            }
+            if (localStorage.getItem('eredi') == null) {
+                button_eredi.style.display = "none";
+            }
+            if (localStorage.getItem('ucl') == null) {
+                button_ucl.style.display = "none";
+            }
+            if (localStorage.getItem('america') == null) {
+                button_america.style.display = "none";
+            }
+            if (localStorage.getItem('pais1') == null) {
+                button_pais1.style.display = "none";
+            }
+            if (localStorage.getItem('pais2') == null) {
+                button_pais2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes1') == null) {
+                button_clubes1.style.display = "none";
+            }
+            if (localStorage.getItem('clubes2') == null) {
+                button_clubes2.style.display = "none";
+            }
+            if (localStorage.getItem('clubes3') == null) {
+                button_clubes3.style.display = "none";
+            }
+            if (localStorage.getItem('carrera') >= 0) {
+                button_carrera.style.display = "none";
+            }
+
+            const storedPlayerName = localStorage.getItem("player");
+
+            if (storedPlayerName) {
+                // Find the index of the player to remove
+                const playerIndex = players.findIndex(player => player.name === storedPlayerName);
+
+                if (playerIndex !== -1) {
+                    // Remove the player from the array
+                    players.splice(playerIndex, 1);
+
+                    // Update localStorage (optional, based on your application's requirements)
+                    localStorage.removeItem("player");
+                } else {
+                    // Handle the case where the player is not found
+                    console.log(`Player with name "${storedPlayerName}" not found in the list.`);
+                }
+            }
+
+            document.getElementById("btn-start").disabled = false;
+
+        }
+
+
+
+    </script>
+</body>
