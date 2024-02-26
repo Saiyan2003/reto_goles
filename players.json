@@ -703,5 +703,35 @@
         "pais": 3,
         "clubes": 172,
         "carrera": 175
+    },
+    {
+        "name": "Salah",
+        "photo": "https://img.a.transfermarkt.technology/portrait/big/148455-1700651360.jpg?lm=1",
+        "epl": 154,
+        "laliga": 0,
+        "bundes": 0,
+        "seriea": 35,
+        "ligueone": 0,
+        "eredi": 0,
+        "ucl": 44,
+        "america": 0,
+        "pais": 54,
+        "clubes": 282,
+        "carrera": 336
+    },
+    {
+        "name": "Tevez",
+        "photo": "https://img.a.transfermarkt.technology/portrait/big/4276-1463994638.jpg?lm=1",
+        "epl": 84,
+        "laliga": 0,
+        "bundes": 0,
+        "seriea": 39,
+        "ligueone": 0,
+        "eredi": 0,
+        "ucl": 13,
+        "america": 0,
+        "pais": 13,
+        "clubes": 0,
+        "carrera": 0
     }
 ]
