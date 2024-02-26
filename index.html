@@ -279,7 +279,7 @@
                     const player = players[currentPlayerIndex];
                     document.getElementById('playerImage').src = player.photo;
                     localStorage.setItem('player', player.name);
-                }, 25);
+                }, 50);
             } else {
                 clearInterval(intervalId);
                 intervalId = null;
