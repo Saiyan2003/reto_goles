@@ -345,19 +345,19 @@
         "carrera": 266
     },
     {
-        "name": "Godín",
-        "photo": "https://img.a.transfermarkt.technology/portrait/big/54928-1547721268.jpg?lm=1",
-        "epl": 0,
-        "laliga": 21,
+        "name": "Lautaro Martinez",
+        "photo": "https://img.a.transfermarkt.technology/portrait/big/576024-1684920938.jpg?lm=1",
+        "epl": 17,
+        "laliga": 0,
         "bundes": 0,
-        "seriea": 2,
+        "seriea": 0,
         "ligueone": 0,
         "eredi": 0,
-        "ucl": 4,
-        "america": 2,
-        "pais": 8,
-        "clubes": 38,
-        "carrera": 46
+        "ucl": 7,
+        "america": 54,
+        "pais": 7,
+        "clubes": 86,
+        "carrera": 93
     },
     {
         "name": "Bale",
@@ -410,7 +410,7 @@
         "epl": 0,
         "laliga": 0,
         "bundes": 0,
-        "seriea": 99,
+        "seriea": 101,
         "ligueone": 0,
         "eredi": 0,
         "ucl": 12,
