@@ -673,5 +673,20 @@
         "pais": 9,
         "clubes": 184,
         "carrera": 193
+    },
+    {
+        "name": "Falcao",
+        "photo": "https://img.a.transfermarkt.technology/portrait/big/39152-1708071754.jpg?lm=1",
+        "epl": 5,
+        "laliga": 61,
+        "bundes": 0,
+        "seriea": 0,
+        "ligueone": 65,
+        "eredi": 0,
+        "ucl": 12,
+        "america": 34,
+        "pais": 36,
+        "clubes": 307,
+        "carrera": 343
     }
 ]
