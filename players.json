@@ -9,7 +9,7 @@
         "ligueone": 82,
         "eredi": 0,
         "ucl": 43,
-        "america": 54,
+        "america": 72,
         "pais": 79,
         "clubes": 296,
         "carrera": 375
@@ -39,7 +39,7 @@
         "ligueone": 22,
         "eredi": 0,
         "ucl": 120,
-        "america": 1,
+        "america": 12,
         "pais": 106,
         "clubes": 721,
         "carrera": 827
@@ -99,7 +99,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 2,
-        "america": 57,
+        "america": 97,
         "pais": 39,
         "clubes": 218,
         "carrera": 257
@@ -129,7 +129,7 @@
         "ligueone": 39,
         "eredi": 0,
         "ucl": 44,
-        "america": 21,
+        "america": 39,
         "pais": 65,
         "clubes": 302,
         "carrera": 367
@@ -204,7 +204,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 30,
-        "america": 23,
+        "america": 25,
         "pais": 53,
         "clubes": 313,
         "carrera": 366
@@ -219,7 +219,7 @@
         "ligueone": 0,
         "eredi": 91,
         "ucl": 27,
-        "america": 25,
+        "america": 34,
         "pais": 68,
         "clubes": 471,
         "carrera": 434
@@ -249,7 +249,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 17,
-        "america": 7,
+        "america": 10,
         "pais": 3,
         "clubes": 85,
         "carrera": 88
@@ -279,7 +279,7 @@
         "ligueone": 138,
         "eredi": 0,
         "ucl": 35,
-        "america": 0,
+        "america": 3,
         "pais": 58,
         "clubes": 370,
         "carrera": 428
@@ -294,7 +294,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 9,
-        "america": 5,
+        "america": 6,
         "pais": 6,
         "clubes": 47,
         "carrera": 53
@@ -324,7 +324,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 5,
-        "america": 1,
+        "america": 11,
         "pais": 27,
         "clubes": 121,
         "carrera": 148
@@ -354,7 +354,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 4,
-        "america": 0,
+        "america": 2,
         "pais": 8,
         "clubes": 38,
         "carrera": 46
@@ -369,7 +369,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 20,
-        "america": 2,
+        "america": 3,
         "pais": 40,
         "clubes": 185,
         "carrera": 225
@@ -399,7 +399,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 41,
-        "america": 0,
+        "america": 23,
         "pais": 41,
         "clubes": 385,
         "carrera": 426
@@ -414,7 +414,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 12,
-        "america": 22,
+        "america": 27,
         "pais": 21,
         "clubes": 152,
         "carrera": 173
@@ -459,7 +459,7 @@
         "ligueone": 113,
         "eredi": 35,
         "ucl": 48,
-        "america": 52,
+        "america": 53,
         "pais": 62,
         "clubes": 496,
         "carrera": 558
@@ -504,7 +504,7 @@
         "ligueone": 17,
         "eredi": 0,
         "ucl": 18,
-        "america": 39,
+        "america": 52,
         "pais": 33,
         "clubes": 197,
         "carrera": 230
@@ -519,7 +519,7 @@
         "ligueone": 0,
         "eredi": 42,
         "ucl": 14,
-        "america": 18,
+        "america": 26,
         "pais": 62,
         "clubes": 298,
         "carrera": 360
@@ -624,7 +624,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 30,
-        "america": 41,
+        "america": 44,
         "pais": 29,
         "clubes": 177,
         "carrera": 206
@@ -684,7 +684,7 @@
         "ligueone": 65,
         "eredi": 0,
         "ucl": 12,
-        "america": 34,
+        "america": 45,
         "pais": 36,
         "clubes": 307,
         "carrera": 343
@@ -699,7 +699,7 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 18,
-        "america": 0,
+        "america": 9    ,
         "pais": 3,
         "clubes": 172,
         "carrera": 175
@@ -729,9 +729,9 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 13,
-        "america": 0,
+        "america": 123,
         "pais": 13,
-        "clubes": 0,
-        "carrera": 0
+        "clubes": 291,
+        "carrera": 304
     }
 ]
