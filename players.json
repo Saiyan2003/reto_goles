@@ -688,5 +688,20 @@
         "pais": 36,
         "clubes": 307,
         "carrera": 343
+    },
+    {
+        "name": "Dybala",
+        "photo": "https://img.a.transfermarkt.technology/portrait/big/206050-1641810495.jpg?lm=1",
+        "epl": 0,
+        "laliga": 0,
+        "bundes": 0,
+        "seriea": 118,
+        "ligueone": 0,
+        "eredi": 0,
+        "ucl": 18,
+        "america": 0,
+        "pais": 3,
+        "clubes": 172,
+        "carrera": 175
     }
 ]
