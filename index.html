@@ -166,7 +166,7 @@
                                 <h5 class="card-title">Clubes&#9917;:&nbsp;</h5>
                                 <h5 id="goals_clubes3">----------</h5>
                                 <h5>&nbsp;</h5>
-                                <button type="button" class="btn btn-primary" id="clubes3" onclick="updateClubes3()">
+                                <button type="button" class="btn btn-primary" id="clubes3" onclick="updateClubes3()" style="margin-left: auto;">
                                     <i class="fa-solid fa-caret-left"></i>
                                 </button>
                             </div>
@@ -174,7 +174,7 @@
                                 <h5 class="card-title">Carrera&#9917;&#9917;:&nbsp;</h5>
                                 <h5 id="goals_carrera">----------</h5>
                                 <h5>&nbsp;</h5>
-                                <button type="button" class="btn btn-primary" id="carrera" onclick="updateCarrera()">
+                                <button type="button" class="btn btn-primary" id="carrera" onclick="updateCarrera()" style="margin-left: auto;">
                                     <i class="fa-solid fa-caret-left"></i>
                                 </button>
                             </div>
@@ -190,19 +190,13 @@
                                     alt="..." />
                             </div>
                             <br />
-                            <button class="btn btn-success mb-1" onclick="sortear()" id="btn-start">
+                            <button class="btn btn-success mb-1 w-25" onclick="sortear()" id="btn-start">
                                 <i id="icono" class="fa-solid fa-play"></i>
                             </button>
                             <button class="btn btn-danger" onclick="reiniciar()">REINICIAR</button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row text-white text-center mt-5">
-                <h5>Por si deseas apoyarme para seguir mejorando la web</h5>
-                <h5>PAYPAL: serch174@hotmail.com</h5>
-                <h5>YAPE</h5>
-                <img class="m-auto img-yape" src="qr_yape.jpeg" alt="..." />
             </div>
         </div>
     </div>
@@ -224,6 +218,7 @@
             .then(data => {
                 players.push(...data);
                 players.sort(() => Math.random() - 0.5);
+                console.log(players)
             })
             .catch(error => {
                 // Capturar errores de red u otros errores
