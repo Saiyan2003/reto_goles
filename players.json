@@ -630,8 +630,8 @@
         "carrera": 146
     },
     {
-        "name": "Vinicius",
-        "photo": "https://img.a.transfermarkt.technology/portrait/big/371998-1664869583.jpg?lm=1",
+        "name": "Pelé",
+        "photo": "https://img.a.transfermarkt.technology/portrait/big/17121-1672341199.jpg?lm=1",
         "epl": 0,
         "laliga": 41,
         "bundes": 0,
@@ -639,10 +639,10 @@
         "ligueone": 0,
         "eredi": 0,
         "ucl": 17,
-        "america": 10,
-        "pais": 3,
-        "clubes": 85,
-        "carrera": 88
+        "america": 680,
+        "pais": 77,
+        "clubes": 680,
+        "carrera": 757
     },
     {
         "name": "James",
